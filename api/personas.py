@@ -1,5 +1,6 @@
 import random, os
 import numpy as np
+from typing import Optional
 
 ARCHETYPES = [
   {"name":"Trendsetter GenZ","age_range":(18,25),"region":"Urban","traits":["bold","playful","novelty-seeking"],"interests":["streetwear","gaming","music festivals"]},
@@ -15,7 +16,7 @@ ARCHETYPES = [
   {"name":"Fashion Forward GenZ","age_range":(18,25),"region":"Urban","traits":["stylish","confident","trend-aware"],"interests":["fashion","beauty","lifestyle","brands"]}
 ]
 
-def synthetic_panel(n:int, seed:int|None=None):
+def synthetic_panel(n:int, seed:Optional[int]=None):
     if seed is not None:
         random.seed(seed); np.random.seed(seed)
     out=[]
@@ -33,7 +34,7 @@ def synthetic_panel(n:int, seed:int|None=None):
     return out
 
 # Enhanced PersonaHub integration for Gen Z targeting
-def personahub_panel(n:int, keyword:str|None=None):
+def personahub_panel(n:int, keyword:Optional[str]=None):
     try:
         from datasets import load_dataset
         ds = load_dataset("proj-persona/PersonaHub","persona",split="train",streaming=True)
@@ -97,7 +98,7 @@ def personahub_panel(n:int, keyword:str|None=None):
         return synthetic_panel(n)
 
 # Specialized Gen Z persona generator
-def genz_synthetic_panel(n:int, seed:int|None=None):
+def genz_synthetic_panel(n:int, seed:Optional[int]=None):
     """Generate synthetic Gen Z personas specifically for your target audience"""
     if seed is not None:
         random.seed(seed); np.random.seed(seed)
