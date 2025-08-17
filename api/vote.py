@@ -27,8 +27,7 @@ Brand Brief:
 Question: {question}
 Options: {options}
 
-Evaluation rubric (weigh as relevant): shelf visibility, brand personality fit, emotional impact, memorability,
-cultural/age appropriateness, readability/accessibility. Penalize options that contradict constraints in the brief.
+
 
 Task:
 - Mode = {mode}
