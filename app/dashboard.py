@@ -20,128 +20,149 @@ st.set_page_config(
 # Custom CSS for professional styling
 st.markdown("""
 <style>
+/* Reset Streamlit defaults */
+.main .block-container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.main .block-container .block {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
 /* Global styles */
 .main {
-    padding: 0;
+    padding: 0 !important;
 }
 
 /* Top bar styling */
 .top-bar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
-    margin-bottom: 2rem;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 1rem 0 !important;
+    margin-bottom: 2rem !important;
+    width: 100% !important;
 }
 
 .dark .top-bar {
-    background: rgba(0, 0, 0, 0.95);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.95) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Card styling */
 .card {
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease;
+    background: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 16px !important;
+    padding: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.2s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .dark .card {
-    background: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #1a1a1a !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-1px) !important;
 }
 
 /* Gradient button */
 .gradient-btn {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
-    border: none;
-    color: white;
-    padding: 0.75rem 2rem;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899) !important;
+    border: none !important;
+    color: white !important;
+    padding: 0.75rem 2rem !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3) !important;
+    display: inline-block !important;
+    text-decoration: none !important;
 }
 
 .gradient-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4) !important;
 }
 
 .gradient-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
 }
 
 /* Sticky run bar */
 .run-bar {
-    position: sticky;
-    top: 80px;
-    z-index: 999;
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-    padding: 1rem 1.5rem;
-    margin: 1rem 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: sticky !important;
+    top: 80px !important;
+    z-index: 999 !important;
+    background: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 16px !important;
+    padding: 1rem 1.5rem !important;
+    margin: 1rem 0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .dark .run-bar {
-    background: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #1a1a1a !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 /* KPI cards */
 .kpi-card {
-    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: all 0.2s ease;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    text-align: center !important;
+    transition: all 0.2s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .dark .kpi-card {
-    background: linear-gradient(135deg, #1e293b, #334155);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #1e293b, #334155) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .kpi-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* Option pills */
 .option-pill {
-    display: inline-block;
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    border-radius: 20px;
-    padding: 0.5rem 1rem;
-    margin: 0.25rem;
-    font-size: 0.9rem;
-    color: #475569;
+    display: inline-block !important;
+    background: #f1f5f9 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 20px !important;
+    padding: 0.5rem 1rem !important;
+    margin: 0.25rem !important;
+    font-size: 0.9rem !important;
+    color: #475569 !important;
+    font-weight: 500 !important;
 }
 
 .dark .option-pill {
-    background: #334155;
-    border: 1px solid #475569;
-    color: #e2e8f0;
+    background: #334155 !important;
+    border: 1px solid #475569 !important;
+    color: #e2e8f0 !important;
 }
 
 /* Status indicators */
@@ -360,14 +381,28 @@ def main():
         </div>
         """, unsafe_allow_html=True)
     
-    # Two-pane layout
-    col1, col2 = st.columns([1, 2])
+    # Three-pane layout to match the image exactly
+    col1, col2, col3 = st.columns([1, 2, 1])
     
     with col1:
         st.markdown('<div class="card">', unsafe_allow_html=True)
         st.markdown("### ⚙️ Configuration")
         
-        # Persona Source
+        # AI Model Section
+        st.markdown("**AI Model**")
+        model = st.selectbox(
+            "Model",
+            ["gpt-4o-mini", "gpt-4o", "gpt-3.5-turbo"],
+            help="Choose the AI model for generating responses"
+        )
+        
+        temperature = st.slider(
+            "Creativity", 
+            0.0, 1.0, 0.6, 0.1, 
+            help="Higher = more creative/varied responses, Lower = more consistent"
+        )
+        
+        st.markdown("**Voter Panel**")
         persona_source = st.selectbox(
             "Persona Source",
             ["synthetic", "personahub", "genz_synthetic"],
@@ -382,7 +417,7 @@ def main():
         if persona_source == "genz_synthetic":
             st.info("🎯 Using specialized Gen Z personas (18-25, social media savvy, bold & playful)")
         
-        # Voting Mode
+        st.markdown("**Voting Rules**")
         mode = st.selectbox(
             "Voting Mode",
             ["forced_choice", "approval", "ranking"],
@@ -394,7 +429,6 @@ def main():
             help="Forced Choice: Pick one best option\nApproval: Pick any acceptable options\nRanking: Rank all options in order"
         )
         
-        # Counting Rule
         rule = st.selectbox(
             "Counting Rule",
             ["plurality", "approval", "borda", "condorcet"],
@@ -407,11 +441,9 @@ def main():
             help="Plurality: Most first-place votes wins\nApproval: Most approvals wins\nBorda: Points-based ranking system\nCondorcet: Pairwise comparison winner"
         )
         
-        # Number of Voters
-        n_voters = st.slider("Number of Voters", 5, 200, 15, help="More voters = more reliable results but slower processing")
-        
-        # Temperature
-        temperature = st.slider("Creativity (Temperature)", 0.0, 1.0, 0.6, 0.1, help="Higher = more creative/varied responses, Lower = more consistent")
+        # Voting modes description
+        st.markdown("**Voting Modes:**")
+        st.markdown("• Forced Choice: Pick one best option")
         
         # Seed (optional)
         seed = st.number_input("Seed (optional)", min_value=1, help="Fixed seed for reproducible results")
@@ -425,20 +457,20 @@ def main():
         
         question = st.text_input(
             "What are you testing?",
-            value="Which color should we choose for our new energy drink?",
+            placeholder="e.g., Which color should we choose for our new energy drink?",
             help="Be specific about what you want to test"
         )
         
         brief = st.text_area(
             "Brand Brief & Context",
-            value="Target audience: Gen Z consumers aged 18-25 who are energetic and social media savvy. Brand personality: Bold, playful, and trend-setting. Looking for colors that will stand out on social media and appeal to young adults.",
+            placeholder="Describe your target audience, brand personality, constraints, and what you're looking for...",
             height=120,
             help="Describe target audience, brand personality, constraints, and what you're looking for"
         )
         
         options_input = st.text_input(
             "Options to test (comma-separated)",
-            value="red, gold, pink, blue, green",
+            placeholder="e.g., Yellow, Red, Blue, Green",
             help="Enter at least 2 options separated by commas"
         )
         
@@ -450,21 +482,21 @@ def main():
             st.markdown(pills_html, unsafe_allow_html=True)
             st.markdown(f"<small style='color: #10b981;'>{len(options)} options ready</small>", unsafe_allow_html=True)
         
+        # Number of Voters moved here
+        n_voters = st.slider("Number of Voters", 5, 200, 50, help="More voters = more reliable results but slower processing")
+        
         st.markdown('</div>', unsafe_allow_html=True)
         
         # Sticky Run Bar
         st.markdown('<div class="run-bar">', unsafe_allow_html=True)
         
-        col_run1, col_run2, col_run3 = st.columns([2, 1, 1])
-        
-        with col_run1:
-            run_disabled = len(options) < 2 or not question or not brief
-            if st.button(
-                "🚀 Run Concept Test",
-                disabled=run_disabled,
-                use_container_width=True,
-                key="run_button"
-            ):
+        run_disabled = len(options) < 2 or not question or not brief
+        if st.button(
+            "🚀 Run Concept Test",
+            disabled=run_disabled,
+            use_container_width=True,
+            key="run_button"
+        ):
                 st.session_state.is_running = True
                 st.session_state.progress = 0
                 
@@ -500,13 +532,35 @@ def main():
                 st.session_state.is_running = False
                 st.rerun()
         
-        with col_run2:
-            if st.session_state.is_running:
-                st.markdown(f"<div style='text-align: center;'><strong>Running...</strong><br><small>{st.session_state.progress}%</small></div>", unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
         
-        with col_run3:
-            if st.session_state.is_running:
+        # Progress display
+        if st.session_state.is_running:
+            col_prog1, col_prog2 = st.columns([2, 1])
+            with col_prog1:
+                st.markdown(f"<div style='text-align: center;'><strong>Running...</strong><br><small>{st.session_state.progress}%</small></div>", unsafe_allow_html=True)
+            with col_prog2:
                 st.markdown('<div class="progress-container"><div class="progress-bar" style="width: {}%"></div></div>'.format(st.session_state.progress), unsafe_allow_html=True)
+    
+    with col3:
+        # Status Cards (Right Sidebar)
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.markdown("### 📊 Current Status")
+        
+        st.markdown('<div class="kpi-card">', unsafe_allow_html=True)
+        st.markdown("**Current Mode**")
+        st.markdown(f"**{mode.replace('_', ' ').title()}**")
+        st.markdown('</div>', unsafe_allow_html=True)
+        
+        st.markdown('<div class="kpi-card">', unsafe_allow_html=True)
+        st.markdown("**Counting Rule**")
+        st.markdown(f"**{rule.title()}**")
+        st.markdown('</div>', unsafe_allow_html=True)
+        
+        st.markdown('<div class="kpi-card">', unsafe_allow_html=True)
+        st.markdown("**Voters**")
+        st.markdown(f"**{n_voters}**")
+        st.markdown('</div>', unsafe_allow_html=True)
         
         st.markdown('</div>', unsafe_allow_html=True)
         
